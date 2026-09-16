@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonExports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2023",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "types": ["vitest/globals", "node"],
+    "paths": {
+      "@app/pagina-me": ["./libs/pagina-me/src/index.ts"],
+      "@app/pagina-me/*": ["./libs/pagina-me/src/*"],
+      "@matteophre/nestjs-pagina-me": ["./libs/pagina-me/src/index.ts"],
+      "@matteophre/nestjs-pagina-me/*": ["./libs/pagina-me/src/*"]
+    }
+  },
+  "files": [],
+  "references": [
+    { "path": "./libs/pagina-me/tsconfig.lib.json" },
+    { "path": "./apps/example/tsconfig.app.json" }
+  ]
+}

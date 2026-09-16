@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/example/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "builder": "rspack"
+  },
+  "projects": {
+    "example": {
+      "type": "application",
+      "root": "apps/example",
+      "entryFile": "main",
+      "sourceRoot": "apps/example/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/example/tsconfig.app.json"
+      }
+    },
+    "pagina-me": {
+      "type": "library",
+      "root": "libs/pagina-me",
+      "entryFile": "index",
+      "sourceRoot": "libs/pagina-me/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/pagina-me/tsconfig.lib.json"
+      }
+    }
+  },
+  "monorepo": true
+}
