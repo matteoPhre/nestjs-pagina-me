@@ -52,7 +52,22 @@ export class UsersController {
 }
 ```
 
-The default parameter names are `after`, `before`, and `limit`. Change them with `paramNames` in `forRoot` or `forRootAsync`.
+### Custom Query Parameter Names
+
+By default, the pipe reads `after`, `before`, and `limit`. Override any of these names with `paramNames`; unspecified names keep their defaults.
+
+```ts
+PaginationModule.forRoot({
+  secret: process.env.CURSOR_SECRET!,
+  paramNames: {
+    after: 'cursor',
+    before: 'previous',
+    limit: 'pageSize',
+  },
+})
+```
+
+With this configuration, clients use `GET /users?cursor=<cursor>&pageSize=10` for the next page and `GET /users?previous=<cursor>&pageSize=10` for the previous page. `@Paginate()` still returns the normalized `PaginationQuery` shape: `{ after, before, limit }`.
 
 ## PaginationService
 
